@@ -1,5 +1,98 @@
-Nikzad Society body { background-color: #f5f5f5; background-image: url('https://www.transparenttextures.com/patterns/pw-maze-white.png'); background-blend-mode: soft-light; } .texture-border { border: 5px solid #05472a; border-radius: 2rem; padding: 2rem; box-shadow: 0 0 20px #2357c1; } جامعه نیک‌زاد 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>انجمن نیک‌زاد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+      body {
+        background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+      }
+    </style>
+  </head>
+  <body class="bg-[#f5f5f5] text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-[#2357c1] text-white py-6 shadow-xl">
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">انجمن نیک‌زاد</h1>
+        <nav class="space-x-4 space-x-reverse">
+          <a href="#programs" class="hover:underline">برنامه‌ها</a>
+          <a href="#contact" class="hover:underline">ارتباط با ما</a>
+        </nav>
+      </div>
+    </header>
 
-با هم، برای هم
+    <!-- Intro -->
+    <section class="py-10 px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">سلام! به نیک‌زاد خوش اومدی</h2>
+      <p class="max-w-2xl mx-auto text-lg">
+        اینجا جاییه برای کارهای قشنگ، باحال و تاثیرگذار. یه قدم کوچیک از تو، یه تغییر بزرگ برای کسی دیگه.
+      </p>
+    </section>
 
-<!-- Main Content --> <main class="max-w-4xl mx-auto mt-8 texture-border bg-white"> <section class="mb-10"> <h2 class="text-2xl font-semibold text-[#05472a] mb-4">درباره برنامه‌ها</h2> <div id="programs" class="grid grid-cols-1 gap-4"></div> </section> <!-- Slider Section --> <section> <h2 class="text-xl font-bold mb-2">پست‌های تلگرامی</h2> <div id="slider" class="relative overflow-hidden bg-[#2357c1] text-white rounded-lg p-4"> <div id="slider-inner" class="whitespace-nowrap transition-all duration-500"></div> </div> </section> </main> <!-- Footer --> <footer class="bg-[#05472a] text-white text-center p-6 mt-10"> <p>© 2025 Nikzad Society. تمامی حقوق محفوظ است.</p> <div class="flex justify-center gap-4 mt-2"> <a href="https://instagram.com/nikzad_society" target="_blank">Instagram</a> <a href="https://t.me/nikzad_society" target="_blank">Telegram</a> </div> </footer> <!-- Sample JSON Data --> <script> const programs = [ { title: "بازیافت در مدرسه", description: "همکاری در تفکیک زباله‌ها و کمک به کودکان نیازمند." }, { title: "کمپین چشمان روشن", description: "تهیه عینک و کمک‌هزینه برای درمان تنبلی چشم کودکان." }, { title: "ویلچر برای امید", description: "جمع‌آوری کمک برای خرید ویلچر به کودکان دارای معلولیت." }, ]; const telegramPosts = [ 
+    <!-- Slider -->
+    <section id="programs" class="bg-white py-10">
+      <div class="container mx-auto px-6" x-data="sliderData()" x-init="fetchPosts()">
+        <h2 class="text-2xl font-bold mb-6 text-[#05472a]">برنامه‌های ما</h2>
+        <template x-if="posts.length">
+          <div class="relative">
+            <div class="overflow-hidden rounded-xl shadow-xl">
+              <div class="flex transition-transform duration-500" :style="'transform: translateX(-' + current * 100 + '%)'">
+                <template x-for="post in posts" :key="post.title">
+                  <div class="w-full flex-shrink-0 p-4 bg-[#f5f5f5] text-right">
+                    <h3 class="text-xl font-bold text-[#2357c1]" x-text="post.title"></h3>
+                    <p class="mt-2" x-text="post.description"></p>
+                    <a class="text-[#05472a] underline mt-4 inline-block" :href="post.link" target="_blank">بیشتر بخوانید</a>
+                  </div>
+                </template>
+              </div>
+            </div>
+            <div class="flex justify-between mt-4">
+              <button class="text-[#2357c1]" @click="prev">قبلی</button>
+              <button class="text-[#2357c1]" @click="next">بعدی</button>
+            </div>
+          </div>
+        </template>
+        <template x-if="!posts.length">
+          <p>در حال بارگذاری...</p>
+        </template>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#05472a] text-white py-8 mt-12">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between">
+        <div>
+          <h4 class="text-lg font-bold">ارتباط با ما</h4>
+          <p class="mt-2">تلگرام: @nikzad_society</p>
+          <p>اینستاگرام: @nikzad_society</p>
+        </div>
+        <div class="mt-6 md:mt-0">
+          <p>&copy; 2025 Nikzad Society - کلیه حقوق محفوظ است.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function sliderData() {
+        return {
+          posts: [],
+          current: 0,
+          fetchPosts() {
+            fetch('posts.json')
+              .then((res) => res.json())
+              .then((data) => (this.posts = data));
+          },
+          next() {
+            this.current = (this.current + 1) % this.posts.length;
+          },
+          prev() {
+            this.current = (this.current - 1 + this.posts.length) % this.posts.length;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
