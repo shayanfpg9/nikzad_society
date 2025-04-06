@@ -1,12 +1,17 @@
 [
   {
-    "title": "کمپین بازیافت کاغذ",
-    "description": "جمع‌آوری کاغذهای باطله برای کمک به مدارس کم‌بضاعت.",
-    "telegram": "nikzad_society"
+    "title": "معرفی کمپین نیک‌زاد",
+    "description": "شروع فعالیت انجمن دانش‌آموزی نیک‌زاد",
+    "telegram": "nikzad_society/11"
   },
   {
-    "title": "کارگاه آموزشی تفکیک زباله",
-    "description": "برگزاری دوره‌های رایگان برای نوجوانان.",
-    "telegram": "nikzad_society"
+    "title": "طرح مدیریت پروژه",
+    "description": "معرفی کامل و دقیق انجمن"
+    "telegram": "nikzad_society/15"
+  },
+  {
+    "title": "آغاز جمع‌آوری‌ها",
+    "description": "شروع فعالیت جمع‌آوری زباله‌ها"
+    "telegram": "nikzad_society/16"
   }
 ]
