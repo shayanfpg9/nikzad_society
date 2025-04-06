@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>انجمن نیک‌زاد</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-      background: linear-gradient(135deg, #f5f5f5, #e3fcec);
-      overflow-x: hidden;
-    }
-    .fade-in {
-      animation: fadeIn 1.4s ease-in-out both;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body class="text-gray-800">
-  <!-- هدر -->
-  <header class="w-full py-6 bg-[#05472a] text-white shadow-lg">
-    <div class="max-w-5xl mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold rounded-full px-4 py-1 bg-[#2357c1]">نیک‌زاد</h1>
-      <nav class="space-x-4 space-x-reverse">
-        <a href="#programs" class="hover:underline">برنامه‌ها</a>
-        <a href="#contact" class="hover:underline">ارتباط با ما</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نیک‌زاد | انجمن دانش‌آموزی</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #f5f5f5, #d6f5df);
+        font-family: 'Vazirmatn', sans-serif;
+      }
+      .fade {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- Header -->
+    <header class="bg-green-800 text-white p-5 rounded-b-3xl shadow-xl">
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <h1 class="text-3xl font-bold tracking-wider">نیک‌زاد</h1>
+        <nav class="mt-4 sm:mt-0">
+          <a href="#programs" class="ml-4 hover:underline">برنامه‌ها</a>
+          <a href="#contact" class="hover:underline">ارتباط با ما</a>
+        </nav>
+      </div>
+    </header>
 
-  <!-- معرفی -->
-  <section class="w-full py-12 text-center fade-in">
-    <h2 class="text-3xl md:text-5xl font-bold text-[#05472a]">تغییری کوچک، تاثیری بزرگ</h2>
-    <p class="mt-4 max-w-xl mx-auto text-lg text-[#2357c1]">با نیک‌زاد، زباله‌های بازیافتی تبدیل به امید و حمایت برای دانش‌آموزان می‌شن.</p>
-  </section>
+    <!-- Hero Section -->
+    <section class="text-center py-20 fade">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-green-900 mb-4">
+        تغییر از همین‌جا شروع میشه
+      </h2>
+      <p class="text-lg sm:text-xl text-green-700 max-w-xl mx-auto">
+        با برنامه‌های محیط‌زیستی ما همراه شو، تفکیک کن، بازیافت کن، آینده‌ رو بساز.
+      </p>
+    </section>
 
-  <!-- برنامه‌ها -->
-  <section id="programs" class="py-16 bg-[#f5f5f5]">
-    <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-bold text-center text-[#05472a] mb-10">آخرین برنامه‌ها</h3>
-      <div id="program-list" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
-    </div>
-  </section>
+    <!-- Programs Section -->
+    <section id="programs" class="bg-white p-10 rounded-t-3xl fade">
+      <h3 class="text-2xl font-bold text-green-900 mb-6 text-center">برنامه‌ها</h3>
+      <div id="programList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
 
-  <!-- ارتباط با ما -->
-  <footer id="contact" class="bg-[#2357c1] text-white py-10 mt-16">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h4 class="text-xl font-bold mb-4">راه‌های ارتباطی</h4>
-      <p>تلگرام: <a href="https://t.me/nikzad_society" class="underline">@nikzad_society</a></p>
+    <!-- Footer -->
+    <footer id="contact" class="bg-green-900 text-white text-center py-8 rounded-t-3xl mt-10">
+      <p class="text-lg font-semibold mb-2">ارتباط با ما</p>
+      <p class="mb-1">تلگرام: <a href="https://t.me/nikzad_society" class="underline">@nikzad_society</a></p>
       <p>اینستاگرام: <a href="https://instagram.com/nikzad_society" class="underline">@nikzad_society</a></p>
-      <p class="mt-4 text-sm">© 2025 Nikzad Society. All rights reserved.</p>
-    </div>
-  </footer>
+      <p class="mt-4 text-sm">© 2025 Nikzad Society | طراحی با عشق و مسئولیت</p>
+    </footer>
 
-  <!-- اسکریپت برای خواندن JSON -->
-  <script>
-    fetch('programs.json')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('program-list');
-        data.forEach(item => {
-          container.innerHTML += `
-            <div class="rounded-2xl bg-white shadow-lg p-6 fade-in">
-              <h4 class="text-xl font-bold text-[#05472a] mb-2">${item.title}</h4>
-              <p class="text-gray-600 mb-4">${item.description}</p>
-              <a href="https://t.me/${item.telegram}" target="_blank" class="text-[#2357c1] font-semibold hover:underline">مشاهده در تلگرام</a>
-            </div>
-          `;
+    <!-- JSON Fetch -->
+    <script>
+      fetch("programs.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const list = document.getElementById("programList");
+          data.forEach((item) => {
+            const card = document.createElement("div");
+            card.className =
+              "p-6 rounded-2xl bg-green-100 shadow-md hover:shadow-xl transition-all";
+            card.innerHTML = `
+              <h4 class="text-xl font-bold text-green-800 mb-2">${item.title}</h4>
+              <p class="text-green-700 mb-4">${item.description}</p>
+              <a
+                href="https://t.me/${item.telegram}"
+                target="_blank"
+                class="text-green-900 font-semibold underline"
+                >مشاهده در تلگرام</a
+              >`;
+            list.appendChild(card);
+          });
         });
-      });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
