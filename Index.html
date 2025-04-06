@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>نیک‌زاد | انجمن دانش‌آموزی</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        background: linear-gradient(to bottom right, #f5f5f5, #d6f5df);
-        font-family: 'Vazirmatn', sans-serif;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نیک‌زاد | انجمن دانش‌آموزی</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #05472a, #2357c1);
+      background-size: 400% 400%;
+      animation: bgMove 10s ease infinite;
+    }
+
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 50%;
       }
-      .fade {
-        animation: fadeIn 1s ease-in-out;
+      50% {
+        background-position: 100% 50%;
       }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      100% {
+        background-position: 0% 50%;
       }
-    </style>
-  </head>
-  <body class="text-gray-800">
-    <!-- Header -->
-    <header class="bg-green-800 text-white p-5 rounded-b-3xl shadow-xl">
-      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
-        <h1 class="text-3xl font-bold tracking-wider">نیک‌زاد</h1>
-        <nav class="mt-4 sm:mt-0">
-          <a href="#programs" class="ml-4 hover:underline">برنامه‌ها</a>
-          <a href="#contact" class="hover:underline">ارتباط با ما</a>
-        </nav>
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-white flex flex-col justify-between">
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold mb-2">انجمن دانش‌آموزی نیک‌زاد</h1>
+    <p class="text-xl">با ما آینده را بازیافت کن!</p>
+  </header>
+
+  <main class="px-4 md:px-16">
+    <section id="posts" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <!-- پست‌ها از JSON بارگذاری می‌شوند -->
+    </section>
+  </main>
+
+  <footer class="mt-10 bg-white text-gray-800 py-6 px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-center md:text-right">
+        <p class="font-bold">نیک‌زاد | انجمن دانش‌آموزی</p>
+        <p class="text-sm">تمامی حقوق محفوظ است © 2025</p>
       </div>
-    </header>
+      <div class="flex gap-4 items-center">
+        <a href="https://t.me/nikzad_society" target="_blank" class="hover:text-green-700 transition">تلگرام</a>
+        <a href="https://instagram.com/nikzad_society" target="_blank" class="hover:text-green-700 transition">اینستاگرام</a>
+        <a href="mailto:nikzad_society@gmail.com" class="hover:text-green-700 transition">ایمیل</a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Hero Section -->
-    <section class="text-center py-20 fade">
-      <h2 class="text-4xl sm:text-5xl font-extrabold text-green-900 mb-4">
-        تغییر از همین‌جا شروع میشه
-      </h2>
-      <p class="text-lg sm:text-xl text-green-700 max-w-xl mx-auto">
-        با برنامه‌های محیط‌زیستی ما همراه شو، تفکیک کن، بازیافت کن، آینده‌ رو بساز.
-      </p>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="bg-white p-10 rounded-t-3xl fade">
-      <h3 class="text-2xl font-bold text-green-900 mb-6 text-center">برنامه‌ها</h3>
-      <div id="programList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-green-900 text-white text-center py-8 rounded-t-3xl mt-10">
-      <p class="text-lg font-semibold mb-2">ارتباط با ما</p>
-      <p class="mb-1">تلگرام: <a href="https://t.me/nikzad_society" class="underline">@nikzad_society</a></p>
-      <p>اینستاگرام: <a href="https://instagram.com/nikzad_society" class="underline">@nikzad_society</a></p>
-      <p class="mt-4 text-sm">© 2025 Nikzad Society | طراحی با عشق و مسئولیت</p>
-    </footer>
-
-    <!-- JSON Fetch -->
-    <script>
-      fetch("programs.json")
-        .then((res) => res.json())
-        .then((data) => {
-          const list = document.getElementById("programList");
-          data.forEach((item) => {
-            const card = document.createElement("div");
-            card.className =
-              "p-6 rounded-2xl bg-green-100 shadow-md hover:shadow-xl transition-all";
-            card.innerHTML = `
-              <h4 class="text-xl font-bold text-green-800 mb-2">${item.title}</h4>
-              <p class="text-green-700 mb-4">${item.description}</p>
-              <a
-                href="https://t.me/${item.telegram}"
-                target="_blank"
-                class="text-green-900 font-semibold underline"
-                >مشاهده در تلگرام</a
-              >`;
-            list.appendChild(card);
-          });
+  <script>
+    fetch('programs.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('posts');
+        data.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'bg-white rounded-2xl shadow-md overflow-hidden text-gray-800 hover:shadow-xl transition';
+          card.innerHTML = `
+            <div class="p-6">
+              <h2 class="text-2xl font-bold mb-2">${post.title}</h2>
+              <p class="text-sm mb-4">${post.description}</p>
+              <a href="https://t.me/${post.telegram}" target="_blank" class="text-green-700 font-semibold hover:underline">بیشتر در تلگرام</a>
+            </div>
+          `;
+          container.appendChild(card);
         });
-    </script>
-  </body>
+      });
+  </script>
+</body>
+
 </html>
